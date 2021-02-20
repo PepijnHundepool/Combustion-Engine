@@ -4,7 +4,7 @@ warning off
 relativepath_to_generalfolder='General'; % relative reference to General folder (assumes the folder is in you working folder)
 addpath(relativepath_to_generalfolder); 
 %% Load Nasadatabase
-TdataBase=fullfile('General','NasaThermalDatabase');
+TdataBase=fullfile('General','Nasa','NasaThermalDatabase');
 load(TdataBase);
 %% Nasa polynomials are loaded and globals are set. 
 %% values should not be changed. Ready for use
@@ -44,8 +44,7 @@ r = 8.5;
 
 x= SpS(1).Elcomp(3);                                                        %The amount of moles of carbon in the reactants, equal to the amount of moles of C02 in the products
 y= SpS(1).Elcomp(2);                                                        %the amount of moles of hydrogen in the reactants
-O2_consumed = (x+y)/4;                                                      %The amount of moles of 02 in the air consumed by the ideal stochiometric combustion proccess,from eq 3.29 in Turns
-% O2_consumed = (x + (y/4)) %@@Look which one it correct!
+O2_consumed = 11.035;     %= (x + (y/4))                                    %The amount of moles of 02 in the air consumed by the ideal stochiometric combustion proccess,from eq 3.29 in Turns
 MFuel = SpS(1).Mass;                                                        %defining the molar mass of the fuel in a variable from the SpS struct
 AF_stoic = 4.76 * O2_consumed * ( MAir / MFuel);                            %dirrectly from equation 3.30 in the book
 AF = AF_stoic;
